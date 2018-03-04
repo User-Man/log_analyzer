@@ -1,15 +1,30 @@
 Log Analyzer
-=======
+============
 
 Запуск скрипта:
-----
-  python log_analyzer.py # конфигурация по умолчанию
-  python log_analyzer.py --config config_file.py # использование конфигурации из файла config_file.py
-  python log_analyzer.py --config ./CONFIG_DIR/  # использование конфигурации из директории ./CONFIG_DIR/, с именем config.py по умолчанию
-  python log_analyzer.py --config ./CONFIG_DIR/config.py  # использование конфигурации config.py из директории ./CONFIG_DIR/
+---------------
+
+* конфигурация по умолчанию
+
+    :code:`python log_analyzer.py`
+
+* использование конфигурации из файла config_file.py
+
+    :code:`python log_analyzer.py --config config_file.py`
+
+* использование конфигурации из директории ./CONFIG_DIR/, с именем config.py по умолчанию
+  
+    :code:`python log_analyzer.py --config ./CONFIG_DIR/`
+
+* использование конфигурации config.py из директории ./CONFIG_DIR/
+
+     :code:`python log_analyzer.py --config ./CONFIG_DIR/config.py`
 
 Конфигурация по умолчанию
-----
+-------------------------
+
+.. code:: Python
+
   config = {
       "REPORT_SIZE": 1000,             # В отчет попадает REPORT_SIZE URL'ов с наибольшим суммарным временем обработки (time_sum)
        "REPORT_DIR": "./reports",      # Расположение отчетов
@@ -29,13 +44,19 @@ Log Analyzer
     "PARSER_MAX_PERCENT_ERRORS": 75, # Допустимый процент ошибок (пропуска строк)
   }
 
+
 Файл конфигурации может содержать частичную информацию, т.е хранить изменения только необходимых параметров.
-Например: config_file.py
+
+Например: *config_file.py*
+
+.. code:: Python
+
   config = { "LOG_DIR": "./log" }
+..
 
 Внесет изменения только касательно LOG_DIR, все остальные параметры останутся по умолчанию.
 
 Тестирование
------
+------------
 
-python test_log_analyzer.py -v
+    :code:`python test_log_analyzer.py -v`
